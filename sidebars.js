@@ -37,6 +37,14 @@ const sidebars = {
       id: 'config_mcqp',
       label: 'Config MCQP',
     },
+    {
+      type: 'category',
+      label: 'MCQP Syntax',
+      items: [
+        'mcqp_syntax/intro',
+        'mcqp_syntax/poll',
+      ],
+    },
   ],
 };
 

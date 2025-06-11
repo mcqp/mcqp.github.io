@@ -36,7 +36,7 @@ mcqp send test.mcq
 - Check out the [Installation](./installation.md) to set up **MCQP** on your system.
 - [Create telegram bot](./create_telegram_bot.md) to set up **MCQL**.
 - Config **MCQP CLI** to use your bot, see [MCQP config](./config_mcqp.md).
-- Learn how to use **MCQP** with our comprehensive [Usage Guide](./usage/index.md).
+- Learn how to write and send **MCQP** file with our comprehensive [Guide](./mcqp_syntax/intro.md).
 
 ## License
 **MCQP** is licensed under the **GNU General Public License Version 3** - see the [LICENSE](https://github.com/mcqp/mcqp/blob/main/LICENSE) file for details.
