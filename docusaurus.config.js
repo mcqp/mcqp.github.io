@@ -76,6 +76,11 @@ const config = {
             label: 'Docs',
           },
           {
+            to: '/docs/installation',
+            position: 'left',
+            label: 'Installation',
+          },
+          {
             href: 'https://github.com/mcqp/mcqp',
             label: 'GitHub',
             position: 'right',

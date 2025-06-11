@@ -22,6 +22,21 @@ const sidebars = {
       id: 'intro',
       label: 'Introduction',
     },
+    {
+      type: 'doc',
+      id: 'installation',
+      label: 'Installation',
+    },
+    {
+      type: 'doc',
+      id: 'create_telegram_bot',
+      label: 'Create Telegram Bot',
+    },
+    {
+      type: 'doc',
+      id: 'config_mcqp',
+      label: 'Config MCQP',
+    },
   ],
 };
 
