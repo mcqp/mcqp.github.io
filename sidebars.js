@@ -43,6 +43,7 @@ const sidebars = {
       items: [
         'mcqp_syntax/intro',
         'mcqp_syntax/poll',
+        'mcqp_syntax/mcpoll',
       ],
     },
   ],
