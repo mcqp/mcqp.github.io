@@ -1,19 +1,16 @@
 ---
 sidebar_position: 1
-title: Intro to MCQP Syntax
+title: Introduction to MCQP Syntax
 ---
 
-# Intro to .mcq file type
-## What is .mcq file
-It is type of file use to write the **MCQP** syntax, the **MCQP** syntax is a set of rules that
-helps the user to create many messages and polls quickly.
+# Introduction to .mcq File Type
+## What is a .mcq File?
+A `.mcq` file is used to write **MCQP** syntax, which is a set of rules that helps users quickly create multiple messages and polls.
 
-All the user needs to do is create `.mcq` file and write all the polls, messages, etc, and the **MCQP**
-CLI will take care of the rest.
+Users simply need to create a `.mcq` file, write their polls, messages, and other content, and the **MCQP** CLI will handle the rest.
 
-## How to send .mcq file
-To send `.mcq` file use the **MCQP CLI**. Use the command `send` to send the file, or use the command
-`check` to check the file syntax. Example:
+## How to Send a .mcq File
+To send a `.mcq` file, use the **MCQP CLI**. Use the `send` command to send the file, or the `check` command to verify the file syntax. Example:
 ```bash
 mcqp send test.mcq
 
@@ -21,16 +18,17 @@ mcqp send test.mcq
 mcqp check test.mcq
 ```
 
-## MCQP helps
-**MCQP** helps the student or anyone needs to quickly create exams or bunch of polls and messages and send them to **Telegram**.
+## How MCQP Helps
+**MCQP** helps students and anyone who needs to quickly create exams, polls, and messages to send to **Telegram**.
 
-## Basic MCQP syntax instructions
-The `.mcq` file is the **MCQP** file, the **MCQP CLI** will not parse any other file.
+## Basic MCQP Syntax Instructions
+The `.mcq` file is the **MCQP** file format - the **MCQP CLI** will not parse any other file type.
 
-The **MCQP** syntax divided into section, every section is type of message or poll. 
-Every section start with keyword and have a body, the section body can be a indentaion 
-based or a block based. The indentaion based section start at the keyword and end in start
-of another section or comment or just empty line, for example:
+The **MCQP** syntax is divided into sections, where each section represents a type of message or poll. 
+Each section starts with a keyword and has a body. The section body can be either indentation-based or block-based.
+
+### Indentation-based Sections
+Indentation-based sections start at the keyword and end at the start of another section, a comment, or an empty line. For example:
 ```mcq title="test.mcq"
 // This is a poll section with single choice
 p: How are you today?
@@ -39,16 +37,17 @@ p: How are you today?
     Bad
     Horrible
 ```
-The `\\` is a comment does not parse. The `p:` is the type and the start of the section, The choices of the poll are 
-`Amazing`, `Good`, `Bad` and `Horrible`, every opstion must be in new line and must have indentaion in the front.
+The `//` indicates a comment that is not parsed. The `p:` is the type and start of the section. The poll choices are 
+`Amazing`, `Good`, `Bad`, and `Horrible`. Each option must be on a new line and must be indented.
 
-The block based section start at the start-keyword and ends at the end-keyword, for example:
+### Block-based Sections
+Block-based sections start with a start-keyword and end with an end-keyword. For example:
 ```mcq title="test.mcq"
 m:(
 this is message!
-    this line has indentaion in the front
+    this line has indentation in the front
 *this is a bold text*
 ):endm
 ```
-The `m:(` is the type and the start of the section, the `):endm` is the end of the message section. Any thing in the
-open `m:(` and the close `):endm` will be parse as it is.
+The `m:(` is the type and start of the section, and `):endm` marks the end of the message section. Everything between 
+the opening `m:(` and closing `):endm` will be parsed as-is.

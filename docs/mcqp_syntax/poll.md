@@ -4,12 +4,11 @@ title: Create Single Choice Poll
 ---
 
 # Create Single Choice Poll
-What is a single choice poll? it is a type of poll that only allows you to choose one option. 
-This type of poll does not have a `note` or a correct answer.
+A single choice poll is a type of poll that only allows users to select one option. 
+This type of poll does not include a note or correct answer.
 
 ## Poll Syntax
-To send polls to telegram use the `p:` keyword to defined the poll section. Lat's start explaining
-the syntax:
+To send polls to **Telegram**, use the `p:` keyword to define the poll section. Let's explain the syntax:
 ```mcq
 ╭────────── The start of the poll section
 |          ╭────────── The poll question
@@ -23,20 +22,20 @@ p: How are you today?
                ╯ 
 ╰──╯─────╮
          |
-         ╰───────── An indentaion to identify the options
+         ╰───────── An indentation to identify the options
   
 ```
 You must follow these rules:
-1. You must add new line between the sections.
-2. The poll question length must be in range of 1 to 255 character.
-3. The single opstion length must be in range of 1 to 100 character.
-4. The number of options must be in range of 1 to 10.
-5. You must add the opstions in the indentaion block.
-6. The header of the section must not contain a space in the front (before `p:`).
+1. Add a new line between sections.
+2. The poll question length must be between 1 and 255 characters.
+3. Each option length must be between 1 and 100 characters.
+4. The number of options must be between 1 and 10.
+5. Add options in the indentation block.
+6. The section header must not contain spaces before `p:`.
 
 ---
 ## Example
-Create file and name it `poll.mcq` (it must be `.mcq`), write to it:
+Create a file named `poll.mcq` (it must have the `.mcq` extension) and write:
 ```mcq title="poll.mcq"
 p: How are you today?
     Amazing
@@ -49,35 +48,35 @@ p: What is your favorite programming language
     2. Rust
     3. Go
     4. Python
-    5. JavaScrypt
+    5. JavaScript
     6. Ruby
     7. C#
     8. PHP
 ```
-You can add as much as you want of polls. After you finish writing lat's check the syntax by using
+You can add as many polls as you want. After writing, check the syntax using:
 ```bash
 mcqp check poll.mcq
 ```
-You will see message like this:
+You will see a message like this:
 ```txt
 [INFO] @parser - found 2/poll and 0/question and 0/message
 [INFO] @checker - Everything looks good.
 ```
 :::note
-You do not need to check every time, it is by default checked before sending it to **Telegram**.
+You don't need to check every time - syntax checking is performed by default before sending to **Telegram**.
 :::
 
-Now you need to send the file to **Telegram** by using:
+To send the file to **Telegram**, use:
 ```bash
 mcqp send poll.mcq
 ```
-This command will check and then send the `poll.mcq` to your bot at **Telegram**.
+This command will check the syntax and then send the `poll.mcq` file to your bot on **Telegram**.
 
 ---
-## Create Errors
-After we see the basic syntax for the polls lat's do some erros and explain them.
+## Common Errors
+Let's look at some common errors and their explanations.
 
-### forget the new line
+### Missing New Line
 ```mcq title="poll_errors.mcq"
 p: Do you know Rust?
     a. Yes
@@ -86,52 +85,50 @@ p: Do you know Python?
     a. Yes
     b. No
 ```
-If we try to check this file `poll_errors.mcq` it will throw an error in the section 2.
-This because we did not separate the sections with a new line.
+If we try to check this file `poll_errors.mcq`, it will throw an error in section 2
+because we did not separate the sections with a new line.
 
-### comment out the start of the section
+### Commented Section Start
 ```mcq title="poll_errors.mcq"
 // p: Do you know Rust?
     a. Yes
     b. No
 ```
-If we try to check this file `poll_errors.mcq` it will throw an error in the line number 2.
-This because the parse does not know what is the word `a.` mean.
+If we try to check this file `poll_errors.mcq`, it will throw an error in line 2
+because the parser does not recognize what `a.` means.
 
-### end the section with a comment
+### Section Ended with Comment
 ```mcq title="poll_errors.mcq"
 p: Do you know Rust?
     a. Yes
 // in this comment we ended the poll section
     b. No
 ```
-If we try to check this file `poll_errors.mcq` it will throw an error in the line number 4.
-This because the parse does not know what is the word `b.` mean. it just ends the poll section
-in the comment line and parse the line `b. No` as a new section, but the `b.` is not a keyword!
+If we try to check this file `poll_errors.mcq`, it will throw an error in line 4
+because the parser does not recognize what `b.` means. The poll section ends at the comment line,
+and the parser treats `b. No` as a new section, but `b.` is not a valid keyword.
 
-### NOT an error
+### Not an Error
 ```mcq title="poll_errors.mcq"
 p: Do you know Rust?
     a. Yes
-    // This is NOT a comment!, This part of the options
+    // This is NOT a comment! This is part of the options
     b. No
 ```
-This will NOT throw an error because the comment in the comment with indentaion will be part of
-the options.
+This will NOT throw an error because comments within the indentation block are treated as part of the options.
 
-### no poll question
+### Missing Poll Question
 ```mcq title="poll_errors.mcq"
 p: 
     a. Yes
     b. No
 ```
-If we try to check this file `poll_errors.mcq` it will throw an error in the line number 1.
-This because the length of the poll question is 0 and we must have the length in range of 
-1 to 255.
+If we try to check this file `poll_errors.mcq`, it will throw an error in line 1
+because the poll question length is 0, and it must be between 1 and 255 characters.
 
-### no options
+### No Options
 ```mcq title="poll_errors.mcq"
 p: Do you know Rust?
 ```
-If we try to check this file `poll_errors.mcq` it will throw an error in the line number 1.
-This because the number of options is 0 and you must have it in range of 1 to 10.
+If we try to check this file `poll_errors.mcq`, it will throw an error in line 1
+because there are no options, and you must have between 1 and 10 options.
