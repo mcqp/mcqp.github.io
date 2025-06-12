@@ -45,6 +45,7 @@ const sidebars = {
         'mcqp_syntax/poll',
         'mcqp_syntax/mcpoll',
         'mcqp_syntax/question',
+        'mcqp_syntax/message',
       ],
     },
   ],
