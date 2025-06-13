@@ -8,6 +8,11 @@ To use your bot you must config the **MCQP CLI** by setting up the bot token and
 You do not need to config the **MCQP CLI** when new update come, 
 just if you need to change the bot or the chat then config it again.
 :::
+:::note
+When you configure the **MCQP CLI**, the bot short description will be added as well as the bot long description
+to inform the user that the bot is using the **MCQP** project. Don't worry, you can change the 
+bot description at any time you want through [**BotFather**](https://t.me/BotFather).
+:::
 
 ## Config
 1. Run **mcqp CLI** with `config` command:
