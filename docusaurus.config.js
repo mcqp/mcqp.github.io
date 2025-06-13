@@ -81,8 +81,28 @@ const config = {
             label: 'Installation',
           },
           {
+            href: 'https://github.com/orgs/mcqp/discussions',
+            label: 'Community',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/mcqp/mcqp',
             label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/orgs/mcqp/discussions/new?category=q-a',
+            label: 'Get Help',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/mcqp/mcqp/issues/new?labels=enhancement',
+            label: 'Feature Requests',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/mcqp/mcqp.github.io/issues/new?labels=documentation',
+            label: 'Docs Improvements',
             position: 'right',
           },
         ],
