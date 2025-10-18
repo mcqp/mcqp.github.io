@@ -26,17 +26,16 @@ mcp: How are you today?
   
 ```
 You must follow these rules (similar to [single poll syntax rules](./poll.md#poll-syntax)):
-1. Add a new line between sections.
-2. The poll question length must be between 1 and 255 characters.
-3. Each option length must be between 1 and 100 characters.
-4. The number of options must be between 1 and 10.
-5. Add options in the indentation block.
-6. The section header must not contain spaces before `mcp:`.
+1. The poll question length must be between 1 and 255 characters.
+2. Each option length must be between 1 and 100 characters.
+3. The number of options must be between 2 and 10.
+4. Prefix the options with indentation.
+5. The section header must not contain spaces before `mcp:`.
 
 ---
 ## Example
 Create a file named `mcpoll.mcq` (it must have the `.mcq` extension) and write:
-```mcq title="mcpoll.mcq"
+```mcq title="mcpoll.mcq" showLineNumbers
 mcp: How are you today?
     Amazing
     Good

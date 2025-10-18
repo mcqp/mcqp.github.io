@@ -38,24 +38,15 @@ from the [release page](https://github.com/mcqp/mcqp/releases) ╯
             |
             ╰───────── The end of the message section
 ```
-:::warning
-The **Telegram Markdown v1** parser is simple, it has many issues. If you send a file
-and the **MCQP CLI** throw an error in the message section (e.g. `Can NOT send the message!`)
-please check the syntax of the markdown. The **MCQP CLI** by default escape any simple error
-in the markdown syntax (e.g. if you forget to close the `*`, `_` etc), it can't deal with 
-complex issues (e.g. if you have nested square bracket `[[[example(https://example.com)`).
-:::
-
 You must follow these rules:
-1. Add a new line between sections.
-2. The section start must not contain spaces before `m:(`.
-3. The start `m:(` and the end `):endm` must be in a different lines.
-4. The message length must be at least 1 character long.
+1. The section start must not contain spaces before `m:(`.
+2. The start `m:(` and the end `):endm` must be in a different lines.
+3. The message length must be at least 1 character long.
 
 ---
 ## Example
 Create a file named `message.mcq` (it must have the `.mcq` extension) and write:
-```mcq title="message.mcq"
+```mcq title="message.mcq" showLineNumbers
 m:(
 *Hello world* from `.mcq` file!
 ):endm
@@ -93,38 +84,25 @@ This command will check the syntax and then send the `message.mcq` file to your 
 Let's look at some common errors and their explanations.
 
 ### Start and End in Same Line
-```mcq title="message_error.mcq"
+```mcq title="message_error.mcq" showLineNumbers
 m:( *Hello world* from .mcq file! ):endm
 ```
-It will throw error at line 2. because the parser will skip what is after `m:(` this means it will not see
+It will throw error at line 1. because the parser will skip what is after `m:(` this means it will not see
 the `*Hello world* from .mcq file! ):endm`.
 
 ### Empty Message
-```mcq title="message_error.mcq"
+```mcq title="message_error.mcq" showLineNumbers
 m:(
 
 ):endm
 ```
-It will throw error at line 3. because the message length is 0.
+It will throw error at line 1. because the message length is 0.
 
 ### Escape a Valid Markdown
-```mcq title="message_error.mcq"
+```mcq title="message_error.mcq" showLineNumbers
 m:( 
 \*Hello world* from .mcq file!
 ):endm
 ```
-It will throw error, and it will not send the message. because the parser sees it as a valid syntax, but in 
-real the message send to **Telegram API** like this `\*Hello world* from .mcq file!` the **Telegram Markdown Parser**
-will throw an error because the `*` did not closed. to solve this error, escape the closed start 
-(e.g. `\*Hello world\* from .mcq file!`).
-
-### Nested Square Bracket Error
-```mcq title="message_error.mcq"
-m:( 
-Hello world* from .mcq file!
-[[release page(https://github.com/mcqp/mcqp/releases)
-):endm
-```
-It will throw error, and it will not send the message. because the parser can't escape the nested square bracket (`[[`),
-it can escape one square bracket (e.g. `[release page`). to solve this error, escape the first square bracket 
-(e.g. `\[[release page`) and the **MCQP** parser will escape the last one (e.g. `\[\[release page`).
+It will close the `*` by addin new `*` in the end of message, the message will be like this
+`\*Hello world* from .mcq file!*`

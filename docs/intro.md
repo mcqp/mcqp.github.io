@@ -11,7 +11,7 @@ and anyone who needs to send sets of questions or create exams on **Telegram**.
 
 ## Simple MCQP Syntax Example
 Create a file named `test.mcq` and add the following content:
-```mcq title="test.mcq"
+```mcq title="test.mcq" showLineNumbers
 // config the questions/polls counter to start from 1
 config:
     counter = 1

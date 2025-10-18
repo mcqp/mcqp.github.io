@@ -40,14 +40,14 @@ You must follow these rules:
 4. If you add more then one correct answer it will use the last correct answer.
 5. The question length must be between 1 and 255 characters.
 6. Each option length must be between 1 and 100 characters.
-7. The number of options must be between 1 and 10.
-8. Add options in the indentation block.
+7. The number of options must be between 2 and 10.
+8. Prefix the options with indentation.
 9. The section header must not contain spaces before `q:`.
 
 ---
 ## Example
 Create a file named `question.mcq` (it must have the `.mcq` extension) and write:
-```mcq title="question.mcq"
+```mcq title="question.mcq" showLineNumbers
 q: How are you today? <NOTE: You must be amazing 😁>
     Amazing *
     Good
@@ -84,7 +84,7 @@ This command will check the syntax and then send the `question.mcq` file to your
 Let's look at some common errors and their explanations.
 
 ### No Correct Answer
-```mcq title="question_error.mcq"
+```mcq title="question_error.mcq" showLineNumbers
 q: How are you today?
     Amazing 
     Good
@@ -94,7 +94,7 @@ q: How are you today?
 It will throw error at line 5. because we did not select the correct answer.
 
 ### Length of the Note
-```mcq title="question_error.mcq"
+```mcq title="question_error.mcq" showLineNumbers
 q: How are you today? <NOTE: >
     Amazing *
     Good
@@ -104,7 +104,7 @@ q: How are you today? <NOTE: >
 It will throw error at line 1. because the length of the note must be between 1 and 200 characters.
 
 ### Note is Not in the End
-```mcq title="question_error.mcq"
+```mcq title="question_error.mcq" showLineNumbers
 q: How are you today? <NOTE: > I think you are good!
     Amazing 
     Good *
@@ -114,19 +114,8 @@ q: How are you today? <NOTE: > I think you are good!
 It will NOT throw an error, It will parse the note as a part of the question and the question will be 
 like this `How are you today? <NOTE: > I think you are good!`. because the note is not in the end.
 
-### Note Not Closed
-```mcq title="question_error.mcq"
-q: How are you today? <NOTE: You must be amazing
-    Amazing *
-    Good 
-    Bad
-    Horrible
-```
-It will NOT throw an error, It will parse the note as a part of the question and the question will be 
-like this `How are you today? <NOTE: You must be amazing`. because the note does not ends with `>`.
-
 ### Select Many Correct Answers
-```mcq title="question_error.mcq"
+```mcq title="question_error.mcq" showLineNumbers
 q: How are you today?
     Amazing *
     Good *

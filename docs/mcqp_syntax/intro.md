@@ -29,7 +29,7 @@ Each section starts with a keyword and has a body. The section body can be eithe
 
 ### Indentation-based Sections
 Indentation-based sections start at the keyword and end at the start of another section, a comment, or an empty line. For example:
-```mcq title="test.mcq"
+```mcq title="test.mcq" showLineNumbers
 // This is a poll section with single choice
 p: How are you today?
     Amazing 
@@ -42,7 +42,7 @@ The `//` indicates a comment that is not parsed. The `p:` is the type and start 
 
 ### Block-based Sections
 Block-based sections start with a start-keyword and end with an end-keyword. For example:
-```mcq title="test.mcq"
+```mcq title="test.mcq" showLineNumbers
 m:(
 this is message!
     this line has indentation in the front

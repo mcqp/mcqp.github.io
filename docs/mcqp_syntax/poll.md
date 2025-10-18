@@ -23,20 +23,18 @@ p: How are you today?
 ╰──╯─────╮
          |
          ╰───────── An indentation to identify the options
-  
 ```
 You must follow these rules:
-1. Add a new line between sections.
-2. The poll question length must be between 1 and 255 characters.
-3. Each option length must be between 1 and 100 characters.
-4. The number of options must be between 1 and 10.
-5. Add options in the indentation block.
-6. The section header must not contain spaces before `p:`.
+1. The poll question length must be between 1 and 255 characters.
+2. Each option length must be between 1 and 100 characters.
+3. The number of options must be between 2 and 10.
+4. Prefix the options with indentation.
+5. The section header must not contain spaces before `p:`.
 
 ---
 ## Example
 Create a file named `poll.mcq` (it must have the `.mcq` extension) and write:
-```mcq title="poll.mcq"
+```mcq title="poll.mcq" showLineNumbers
 p: How are you today?
     Amazing
     Good
@@ -76,20 +74,8 @@ This command will check the syntax and then send the `poll.mcq` file to your bot
 ## Common Errors
 Let's look at some common errors and their explanations.
 
-### Missing New Line
-```mcq title="poll_errors.mcq"
-p: Do you know Rust?
-    a. Yes
-    b. No
-p: Do you know Python?
-    a. Yes
-    b. No
-```
-If we try to check this file `poll_errors.mcq`, it will throw an error in section 2
-because we did not separate the sections with a new line.
-
 ### Commented Section Start
-```mcq title="poll_errors.mcq"
+```mcq title="poll_errors.mcq" showLineNumbers
 // p: Do you know Rust?
     a. Yes
     b. No
@@ -98,7 +84,7 @@ If we try to check this file `poll_errors.mcq`, it will throw an error in line 2
 because the parser does not recognize what `a.` means.
 
 ### Section Ended with Comment
-```mcq title="poll_errors.mcq"
+```mcq title="poll_errors.mcq" showLineNumbers
 p: Do you know Rust?
     a. Yes
 // in this comment we ended the poll section
@@ -109,7 +95,7 @@ because the parser does not recognize what `b.` means. The poll section ends at 
 and the parser treats `b. No` as a new section, but `b.` is not a valid keyword.
 
 ### Not an Error
-```mcq title="poll_errors.mcq"
+```mcq title="poll_errors.mcq" showLineNumbers
 p: Do you know Rust?
     a. Yes
     // This is NOT a comment! This is part of the options
@@ -118,7 +104,7 @@ p: Do you know Rust?
 This will NOT throw an error because comments within the indentation block are treated as part of the options.
 
 ### Missing Poll Question
-```mcq title="poll_errors.mcq"
+```mcq title="poll_errors.mcq" showLineNumbers
 p: 
     a. Yes
     b. No
@@ -127,8 +113,8 @@ If we try to check this file `poll_errors.mcq`, it will throw an error in line 1
 because the poll question length is 0, and it must be between 1 and 255 characters.
 
 ### No Options
-```mcq title="poll_errors.mcq"
+```mcq title="poll_errors.mcq" showLineNumbers
 p: Do you know Rust?
 ```
 If we try to check this file `poll_errors.mcq`, it will throw an error in line 1
-because there are no options, and you must have between 1 and 10 options.
+because there are no options, and you must have between 2 and 10 options.
