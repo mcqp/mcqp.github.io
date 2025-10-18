@@ -38,6 +38,11 @@ const sidebars = {
       label: 'Config MCQP',
     },
     {
+      type: 'doc',
+      id: 'reading_errors',
+      label: 'Reading MCQP Errors'
+    },
+    {
       type: 'category',
       label: 'MCQP Syntax',
       items: [
