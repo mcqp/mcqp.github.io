@@ -9,6 +9,9 @@ The `.mcq` file format is designed to write **MCQP** syntax, helping users quick
 multiple messages and polls to **Telegram**. The **MCQP** project was created to assist students
 and anyone who needs to send sets of questions or create exams on **Telegram**.
 
+## Version 0.2.0 is Now Available 🥳
+See the [MCQP v0.2.0 changes](./versions/v0.2.0.md) for more information.
+
 ## Simple MCQP Syntax Example
 Create a file named `test.mcq` and add the following content:
 ```mcq title="test.mcq" showLineNumbers

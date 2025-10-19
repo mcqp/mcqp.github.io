@@ -54,6 +54,13 @@ const sidebars = {
         'mcqp_syntax/config',
       ],
     },
+    {
+      type: 'category',
+      label: 'Versions',
+      items: [
+        'versions/v0.2.0'
+      ],
+    },
   ],
 };
 

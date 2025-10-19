@@ -6,7 +6,7 @@ title: Config Section
 # Config Section
 The config section is not sendable to **Telegram**, it is just a section to set and use some features
 in the **MCQP CLI** (e.g. setting a counter for the polls). We currently support:
-- **counter** is a count for the polls, use to set a number before the polls questions (e.g. `1 How are you today?`)
+- **counter** is a count for the polls, use to set a number before the polls questions (e.g. `1.How are you today?`)
 - **md_err** to enable the message markdown errors.
 
 ## Config Syntax
@@ -56,8 +56,8 @@ p: What is the fastest programming language
     4. PHP
 ```
 This will add a counter before each poll question and the question will send like this:
-- `1 How are you today?`
-- `2 What is the fastest programming language`
+- `1.How are you today?`
+- `2.What is the fastest programming language`
 
 as you can see the counter is auto increment.
 :::note
