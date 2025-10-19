@@ -10,7 +10,8 @@ multiple messages and polls to **Telegram**. The **MCQP** project was created to
 and anyone who needs to send sets of questions or create exams on **Telegram**.
 
 ## Version 0.2.0 is Now Available 🥳
-See the [MCQP v0.2.0 changes](./versions/v0.2.0.md) for more information.
+See the [MCQP v0.2.0 changes](./versions/v0.2.0.md) for more information. To update it see 
+the [Update](./update.md) guide.
 
 ## Simple MCQP Syntax Example
 Create a file named `test.mcq` and add the following content:

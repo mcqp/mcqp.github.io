@@ -29,6 +29,11 @@ const sidebars = {
     },
     {
       type: 'doc',
+      id: 'update',
+      label: 'How To Update',
+    },
+    {
+      type: 'doc',
       id: 'create_telegram_bot',
       label: 'Create Telegram Bot',
     },
